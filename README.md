@@ -20,7 +20,7 @@ We benchmark four SAE variants—Vanilla, BatchTopK, Matryoshka, and our propose
 * Ground-truth features are generated with explicit control over intra-level correlations.
 * Children nodes are mutually exclusive (only one can be active at a time).
 
-![Synthetic Hierarchy](figures/synthetic_tree.png)
+![Synthetic Hierarchy](synthetic_tree.png)
 
 ## 📄 Acknowledgments
 
