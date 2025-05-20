@@ -27,10 +27,11 @@ We benchmark four SAE variants—Vanilla, BatchTopK, Matryoshka, and our propose
 This project is heavily based on the original implementation by [Noa Nabeshima](https://github.com/noanabeshima/matryoshka-saes). We are grateful to the authors for releasing their code. If you use this codebase or build on it, please cite their original work:
 
 ```bibtex
-@article{bussmann2024matryoshka,
+@article{bussmann2025learning,
   title={Learning Multi-Level Features with Matryoshka Sparse Autoencoders},
   author={Bussmann, Bart and Nabeshima, Noa and Karvonen, Adam and Nanda, Neel},
-  year={2024}
+  journal={arXiv preprint arXiv:2503.17547},
+  year={2025}
 }
 ```
 
