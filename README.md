@@ -1,5 +1,5 @@
 
-# MP-SAE Synthetic Experiments
+# MP-SAE 
 
 > ⚠️ **Credit**: The majority of this codebase is adapted from the original implementation by [Noa Nabeshima](https://github.com/noanabeshima/matryoshka-saes), accompanying the paper:
 > **["Learning Multi-Level Features with Matryoshka Sparse Autoencoders"](https://arxiv.org/abs/2503.17547)**
