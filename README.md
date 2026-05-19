@@ -21,7 +21,7 @@ booktitle={The Thirty-ninth Annual Conference on Neural Information Processing S
 year={2025},
 url={https://openreview.net/forum?id=Ll5miDx8KB}
 }
-````
+```
 
 > ⚠️ **Credit**: The majority of this codebase is adapted from the original implementation by [Noa Nabeshima](https://github.com/noanabeshima/matryoshka-saes), accompanying the paper:
 > **["Learning Multi-Level Features with Matryoshka Sparse Autoencoders"](https://arxiv.org/abs/2503.17547)**
@@ -34,13 +34,26 @@ In this work, we revisit the assumptions underlying conventional sparse autoenco
 To evaluate our model, we extend the synthetic benchmark introduced by Matryoshka SAEs and compare MP-SAE against several standard variants.
 
 
-## 🔗 Related Implementations
+## ⚙️ Implementation Notes
 
-An implementation of **MP-SAE** is also available in the excellent [**overcomplete SAE library**](https://github.com/KempnerInstitute/overcomplete), developed by co-author Thomas Fel:
+MP-SAE supports two inference modes, depending on the experimental setting and how sparsity is controlled.
+
+### 1. Threshold-based unrolling
+
+In the synthetic toy experiments, the greedy inference process is unrolled until the residual reaches a predefined threshold or the support no longer changes. This allows different inputs to have different sparsity levels and does not rely on a fixed sparsity target.
+
+### 2. Fixed-step unrolling
+
+For large-scale experiments, we use the fixed-step version of MP-SAE. Here, the number of unrolling steps is fixed in advance, which directly controls the target sparsity level.
+
+This is the version used for the large-scale vision experiments in our paper and the one implemented in the [**overcomplete SAE library**](https://github.com/KempnerInstitute/overcomplete):
 
 * [https://github.com/KempnerInstitute/overcomplete/blob/main/overcomplete/sae/mp_sae.py](https://github.com/KempnerInstitute/overcomplete/blob/main/overcomplete/sae/mp_sae.py)
 
-The large-scale vision experiments presented in our paper were conducted using this library. We recommend checking it out for additional implementations and perspectives on sparse autoencoders.
+<p style="color:red"><strong>Important:</strong> We recommend using this fixed-step implementation for large-scale settings, as the threshold-based version does not scale as well.</p>
+
+> **Dropout:** Randomly masking a percentage of dictionary elements in the early training iterations can help reduce dead neurons and limit over-reliance on early greedy selections. See the [overcomplete implementation](https://github.com/KempnerInstitute/overcomplete/blob/main/overcomplete/sae/mp_sae.py).
+
 
 ## 🧩 Synthetic Toy Hierarchy
 
